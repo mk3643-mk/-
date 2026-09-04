@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Noto Sans KR', sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  /* 꽃곰케이크 브랜드 컬러 */
+  --color-pink-50: #FFF0F3;
+  --color-pink-100: #FFE0E8;
+  --color-pink-200: #F5C6D0;
+  --color-pink-300: #E8A0B5;
+  --color-pink-400: #D4849E;
+  --color-pink-500: #C06888;
+  --color-pink-600: #A84D72;
+
+  --color-lavender-100: #F0E0F5;
+  --color-lavender-200: #DFC5EA;
+  --color-lavender-300: #C9A0DC;
+  --color-lavender-400: #A67BB7;
+  --color-lavender-500: #8A5F9B;
+
+  --color-sage-100: #E8F0E6;
+  --color-sage-200: #C8DBBD;
+  --color-sage-300: #A8C5A0;
+  --color-sage-400: #7BA87B;
+  --color-sage-500: #5E8C5E;
+
+  --color-cream-50: #FFFDF8;
+  --color-cream-100: #FFF8F0;
+  --color-cream-200: #FEF3E8;
+  --color-cream-300: #F8E8D6;
+
+  --color-charcoal: #3D3D3D;
+  --color-charcoal-light: #5A5A5A;
+
+  /* Animations */
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-float-delay: float 3s ease-in-out 1.5s infinite;
+  --animate-fade-in: fadeIn 0.6s ease-out;
+  --animate-fade-in-up: fadeInUp 0.6s ease-out;
+  --animate-slide-in-right: slideInRight 0.3s ease-out;
+  --animate-pulse-soft: pulseSoft 2s ease-in-out infinite;
+}
+
+:root {
+  --background: #FFF8F0;
+  --foreground: #3D3D3D;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Noto Sans KR', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FEF3E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8A0B5;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4849E;
+}
+
+/* Keyframe animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Utility classes */
+.text-gradient-pink {
+  background: linear-gradient(135deg, #E8A0B5, #C9A0DC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-pink {
+  background: linear-gradient(135deg, #E8A0B5, #D4849E);
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFE0E8 50%, #F5C6D0 100%);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #E8A0B5, #C9A0DC);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 32px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(232, 160, 181, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 160, 181, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(232, 160, 181, 0.15);
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 248, 240, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Hide scrollbar for carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
