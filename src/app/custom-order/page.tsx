@@ -88,9 +88,9 @@ export default function CustomOrderPage() {
               <MessageCircle className="w-5 h-5" />
               카카오톡으로 문의하기
             </button>
-            <a href="tel:010-2442-3643" className="flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#3D3D3D] font-bold rounded-xl shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors">
+            <a href="tel:010-3427-3575" className="flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#3D3D3D] font-bold rounded-xl shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors">
               <Phone className="w-5 h-5" />
-              010-2442-3643
+              010-3427-3575
             </a>
           </div>
         </div>

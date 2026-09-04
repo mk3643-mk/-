@@ -27,7 +27,7 @@ export default function Footer() {
           {/* 고객센터 */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <h3 className="text-lg font-bold mb-4 text-[#FEF3E8]">고객센터</h3>
-            <p className="text-2xl font-bold text-white mb-2">010-2442-3643</p>
+            <p className="text-2xl font-bold text-white mb-2">010-3427-3575</p>
             <p className="text-gray-400 text-sm mb-1">운영시간: 10:00 - 19:00 (월-금)</p>
             <p className="text-gray-400 text-sm mb-1">점심시간: 12:30 - 13:30</p>
             <p className="text-gray-400 text-sm">이메일: hello@kkotgom.com</p>
