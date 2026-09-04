@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
-import { Menu, X, Search, User, ShoppingBag, Camera, Phone } from 'lucide-react';
+import { Menu, X, Search, User, ShoppingBag, Camera, Phone, ChevronRight } from 'lucide-react';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,11 +19,11 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-[#F5C6D0]/30">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 h-22 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-[#F5C6D0]/30">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
         {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-14 h-14 flex-shrink-0 transition-transform group-hover:scale-105">
+          <div className="relative w-12 h-12 md:w-14 md:h-14 flex-shrink-0 transition-transform group-hover:scale-105">
             <Image 
               src="/logo.png" 
               alt="꽃곰케이크 로고" 
@@ -70,55 +70,75 @@ export default function Header() {
           <button 
             className="lg:hidden hover:text-[#D4849E] transition-colors p-1"
             onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="메뉴 열기"
           >
-            <Menu size={28} />
+            <Menu size={30} />
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Strictly Opaque z-[100]) */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
-          {/* Overlay */}
+        <div className="fixed inset-0 z-[100] lg:hidden flex justify-end">
+          {/* Backdrop Overlay */}
           <div 
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setIsMobileMenuOpen(false)}
           />
           
-          {/* Drawer Panel */}
-          <div className="absolute top-0 right-0 bottom-0 w-[300px] bg-[#FFF8F0] shadow-2xl p-6 flex flex-col transform transition-transform duration-300 ease-in-out">
-            <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#E8A0B5]/30">
-              <span className="font-extrabold text-xl text-[#3D3D3D]">전체 메뉴</span>
+          {/* Drawer Panel - Solid White Opaque Container */}
+          <div className="relative w-[320px] max-w-[85vw] h-full bg-white shadow-2xl p-6 flex flex-col z-[101] overflow-y-auto">
+            {/* Header */}
+            <div className="flex justify-between items-center pb-5 mb-6 border-b-2 border-[#F5C6D0]/40">
+              <div className="flex items-center gap-2">
+                <div className="relative w-8 h-8">
+                  <Image src="/logo.png" alt="로고" fill className="object-contain" />
+                </div>
+                <span className="font-black text-xl text-[#3D3D3D]">전체 메뉴</span>
+              </div>
               <button 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-[#3D3D3D] hover:text-[#D4849E] p-1"
+                className="text-[#3D3D3D] hover:text-[#D4849E] p-2 bg-[#FFF8F0] rounded-full transition-colors"
+                aria-label="메뉴 닫기"
               >
-                <X size={28} />
+                <X size={26} />
               </button>
             </div>
             
-            <nav className="flex flex-col gap-6 flex-1">
+            {/* Menu Links with High-contrast Cards */}
+            <nav className="flex flex-col gap-3 flex-1">
               {navLinks.map((link) => (
                 <Link 
                   key={link.name} 
                   href={link.href}
-                  className="text-[#3D3D3D] font-bold text-xl hover:text-[#D4849E] transition-colors py-1"
+                  className="flex items-center justify-between text-[#3D3D3D] font-extrabold text-xl px-5 py-4 bg-[#FFF8F0] hover:bg-[#FFE0E8] active:bg-[#F5C6D0]/40 rounded-2xl border border-[#F5C6D0]/40 transition-all shadow-sm"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {link.name}
+                  <span>{link.name}</span>
+                  <ChevronRight size={22} className="text-[#D4849E]" />
                 </Link>
               ))}
             </nav>
             
-            <div className="mt-auto border-t border-[#E8A0B5]/30 pt-6">
-              <div className="flex gap-6 text-[#3D3D3D]">
-                <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-[#D4849E] flex items-center gap-2 text-sm font-medium">
-                  <Camera size={22} /> 인스타그램
-                </a>
-                <a href="tel:02-1234-5678" className="hover:text-[#D4849E] flex items-center gap-2 text-sm font-medium">
-                  <Phone size={22} /> 전화문의
-                </a>
-              </div>
+            {/* Footer SNS & Contact buttons */}
+            <div className="mt-8 pt-6 border-t-2 border-[#F5C6D0]/40 space-y-3">
+              <p className="text-xs font-bold text-gray-400 mb-2">고객센터 & SNS</p>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="flex items-center gap-3 px-4 py-3.5 bg-gray-50 hover:bg-[#FFF8F0] rounded-xl border border-gray-200 text-gray-800 font-bold text-base transition-colors"
+              >
+                <Camera size={22} className="text-[#D4849E]" />
+                <span>인스타그램 방문하기</span>
+              </a>
+              <a 
+                href="tel:02-1234-5678" 
+                className="flex items-center gap-3 px-4 py-3.5 bg-[#E8A0B5]/10 hover:bg-[#E8A0B5]/20 rounded-xl border border-[#E8A0B5]/40 text-[#D4849E] font-extrabold text-base transition-colors"
+              >
+                <Phone size={22} />
+                <span>전화 문의 (02-1234-5678)</span>
+              </a>
             </div>
           </div>
         </div>
