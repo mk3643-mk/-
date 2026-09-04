@@ -27,7 +27,7 @@ export default function Footer() {
           {/* 고객센터 */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <h3 className="text-lg font-bold mb-4 text-[#FEF3E8]">고객센터</h3>
-            <p className="text-2xl font-bold text-white mb-2">02-1234-5678</p>
+            <p className="text-2xl font-bold text-white mb-2">010-2442-3643</p>
             <p className="text-gray-400 text-sm mb-1">운영시간: 10:00 - 19:00 (월-금)</p>
             <p className="text-gray-400 text-sm mb-1">점심시간: 12:30 - 13:30</p>
             <p className="text-gray-400 text-sm">이메일: hello@kkotgom.com</p>
@@ -62,12 +62,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-600/50 pt-8 flex flex-col items-center lg:items-start text-xs text-gray-500 text-center lg:text-left leading-relaxed">
+        <div className="border-t border-gray-600/50 pt-8 flex flex-col items-center lg:items-start text-xs text-gray-400 text-center lg:text-left leading-relaxed">
           <p className="mb-2">
-            상호명: 꽃곰케이크 | 대표자: 홍길동 | 사업자등록번호: 123-45-67890 <br className="lg:hidden" />
-            <span className="hidden lg:inline"> | </span>통신판매업신고: 제2024-서울강남-0123호
+            상호명: 꽃곰케이크 | 대표자: 김휘경 | 사업자등록번호: 123-45-67890 <br className="lg:hidden" />
+            <span className="hidden lg:inline"> | </span>통신판매업신고: 제2024-경기광주-0123호
           </p>
-          <p className="mb-4">사업장 소재지: 서울특별시 강남구 테헤란로 123 꽃곰빌딩 1층</p>
+          <p className="mb-4">사업장 소재지: 경기도 광주시 양벌로 375</p>
           <p>© {new Date().getFullYear()} KKOTGOM CAKE. All rights reserved.</p>
         </div>
       </div>

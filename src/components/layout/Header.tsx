@@ -79,11 +79,11 @@ export default function Header() {
             <span>인스타그램 방문하기</span>
           </a>
           <a 
-            href="tel:02-1234-5678" 
+            href="tel:010-2442-3643" 
             className="flex items-center gap-3 px-4 py-3.5 bg-[#E8A0B5] text-white hover:bg-[#D4849E] rounded-xl font-extrabold text-base transition-colors shadow-md"
           >
             <Phone size={22} />
-            <span>전화 문의 (02-1234-5678)</span>
+            <span>전화 문의 (010-2442-3643)</span>
           </a>
         </div>
       </div>
